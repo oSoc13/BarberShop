@@ -1,0 +1,20 @@
+body
+{
+	background-color:#000000;
+}
+
+div.maindiv
+{
+	width:80%;
+	float:center;
+	margin-left: 10%;
+}
+
+div.imgitem
+{ 
+	margin-left: 15px;
+	margin-top:15px;
+	float:left;
+	width: 200px;
+	height: 200px;
+}
