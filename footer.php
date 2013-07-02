@@ -27,7 +27,7 @@
 			$('button').click(function(event){
 			    event.preventDefault();
 			    
-			    imageSelected="img/007.jpg";
+			    imageSelected="images/full/hair_1.jpg";
 			    
 			    $.ajax({
                   url: "facebook/postData.php",
