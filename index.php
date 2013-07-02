@@ -1,20 +1,32 @@
 <?php include 'header.php'; ?>
+<?php
+	require "dbconfig.php";
+	$connection = mysqli_connect($host,$username,$password,$dbname);
+	if (mysqli_connect_errno($connection))
+	{
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}	  
+	$result = mysqli_query($connection,"SELECT * FROM clients");
+
+	?>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
 		<!-- the gallery-->
-		<div>
+		<div class = "maindiv">
 			
 			<!-- demo images -->
-			<ul id="Gallery" class="gallery"> 
-				<li><a href="images/full/001.jpg"><img src="images/thumb/001.jpg" alt="Image 01" /></a></li>
-				<li><a href="images/full/002.jpg"><img src="images/thumb/002.jpg" alt="Image 02" /></a></li> 
-				<li><a href="images/full/003.jpg"><img src="images/thumb/003.jpg" alt="Image 03" /></a></li> 
-				<li><a href="images/full/004.jpg"><img src="images/thumb/004.jpg" alt="Image 04" /></a></li> 
-				<li><a href="images/full/005.jpg"><img src="images/thumb/005.jpg" alt="Image 05" /></a></li> 
-				<li><a href="images/full/006.jpg"><img src="images/thumb/006.jpg" alt="Image 06" /></a></li> 
-			</ul> 
+			<div id="Gallery" class="gallery"> 
+			<?php
+			
+				while($row = mysqli_fetch_array($result))
+				{
+				  echo '<div class="imgitem"><a href="images/full/' . $row['image'] . '"><img width="200" height="200" src="images/thumb/' . $row['image'] . ' " alt="Hair" /></a></div>' ;
+				}
+				mysqli_close($connection);
+			?>
+			</div> 
 		
 		</div>
-
-        <div>
-            <p>buttons go here</p>
-        </div>
 <?php include 'footer.php'; ?>
