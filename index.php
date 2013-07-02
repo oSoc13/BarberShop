@@ -7,12 +7,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>Gallery</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
 		<link rel="stylesheet" href="css/normalize.min.css">
 		<link rel="stylesheet" href="css/main.css"> 
+		<link rel="stylesheet" href="css/gallery.css"> 
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 		
@@ -34,19 +35,19 @@
         <![endif]-->
 
 		<!-- the gallery-->
-		<div>
+		<div class = "maindiv">
 			
 			<!-- demo images -->
-			<ul id="Gallery" class="gallery"> 
+			<div id="Gallery" class="gallery"> 
 			<?php
 			
 				while($row = mysqli_fetch_array($result))
 				{
-				  echo '<li><a href="images/full/' . $row['image'] . '"><img width="200" src="images/thumb/' . $row['image'] . ' " alt="Hair" /></a></li>' ;
+				  echo '<div class="imgitem"><a href="images/full/' . $row['image'] . '"><img width="200" height="200" src="images/thumb/' . $row['image'] . ' " alt="Hair" /></a></div>' ;
 				}
 				mysqli_close($connection);
 			?>
-			</ul> 
+			</div> 
 		
 		</div>
 
