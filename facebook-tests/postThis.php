@@ -30,23 +30,25 @@ if($user == 0) {
     if($user){
         $MyToken = $facebook->getAccessToken();
         $user_profile = $facebook->api('/me');
+
+        //create message with token gained before
+        $post =  array(
+            'access_token' => $MyToken,
+            'message' => 'This is my automessage written on ' . date('Y-m-d H:i:s')
+        );
+
+        //and make the request
+            $res = $facebook->api('/'.$facebook_user_id.'/feed', 'POST', $post);
+
+        //For example this can also be used to gain user data
+        //and this time only token is needed
+        //$token =  array(
+        //    'access_token' => $MyToken
+        //);
+        //$userdata = $facebook->api('/195631967124803', 'GET', $token);
+        echo "posted<br />";
+
+        echo "You, <b>" . $user_profile['name'] . "</b> are AWESOME!";
     }
-
-    //create message with token gained before
-    $post =  array(
-        'access_token' => $MyToken,
-        'message' => 'This is my automessage written on ' . date('Y-m-d H:i:s')
-    );
-
-    //and make the request
-        $res = $facebook->api('/'.$facebook_user_id.'/feed', 'POST', $post);
-
-    //For example this can also be used to gain user data
-    //and this time only token is needed
-    //$token =  array(
-    //    'access_token' => $MyToken
-    //);
-    //$userdata = $facebook->api('/195631967124803', 'GET', $token);
-    echo "posted";
 }
 ?>
