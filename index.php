@@ -62,7 +62,9 @@ if($user == 0) {
 		
 		</div>
 		
-		<div>
+		<div style="clear: both;">
+		    <br />
+		    <br />
             <button type="button">Deel met je vrienden op Facebook</button>
 
         </div>
