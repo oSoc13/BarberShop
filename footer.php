@@ -16,7 +16,27 @@
         <script src="js/main.js"></script>
         
         <script type="text/javascript">		
-			$(document).ready(function(){ var myPhotoSwipe = $("#Gallery a").photoSwipe({ enableMouseWheel: false , enableKeyboard: false }); }); 
+			$(document).ready(function(){
+			    var myPhotoSwipe = $("#Gallery a").photoSwipe(
+			        {
+			            enableMouseWheel: false , 
+			            enableKeyboard: false 
+			    }); 
+			});
+			
+			$('button').click(function(event){
+			    event.preventDefault();
+			    
+			    imageSelected="img/004.jpg";
+			    window.alert("bonkers");
+			    $.ajax({
+                  url: "facebook/postData.php",
+                  data: "myLink="+imageSelected
+                }).done(function() {
+                  window.alert("done");
+                });
+			    
+			})
 			</script>
 
         <script>

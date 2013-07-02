@@ -15,6 +15,7 @@
 		</div>
 
         <div>
-            <p>buttons go here</p>
+            <button type="button">Deel met je vrienden op Facebook</button>
+
         </div>
 <?php include 'footer.php'; ?>
