@@ -61,6 +61,11 @@ if($user == 0) {
 			</div> 
 		
 		</div>
+		
+		<div>
+            <button type="button">Deel met je vrienden op Facebook</button>
+
+        </div>
 <?php include 'footer.php'; ?>
 <?php
     }
