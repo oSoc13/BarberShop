@@ -18,6 +18,17 @@
 		
 	</head>
     <body>
+	
+	<?php
+	require "dbconfig.php";
+	$connection = mysqli_connect($host,$username,$password,$dbname);
+	if (mysqli_connect_errno($connection))
+	{
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}	  
+	$result = mysqli_query($connection,"SELECT * FROM clients");
+
+	?>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -28,10 +39,12 @@
 			<!-- demo images -->
 			<ul id="Gallery" class="gallery"> 
 			<?php
-				for ($i = 1; $i <= 13; ++$i)
+			
+				while($row = mysqli_fetch_array($result))
 				{
-					echo '<li><a href="images/full/hair_' . $i . '.jpg"><img width="200" src="images/thumb/hair_' . $i . '.jpg" alt="Hair" /></a></li>' ;
+				  echo '<li><a href="images/full/' . $row['image'] . '"><img width="200" src="images/thumb/' . $row['image'] . ' " alt="Hair" /></a></li>' ;
 				}
+				mysqli_close($connection);
 			?>
 			</ul> 
 		
