@@ -15,9 +15,10 @@ if ($user) {
   try {
     // Get the user profile data you have permission to view
     $user_profile = $facebook->api('/me');
-    echo "<pre>";
-    print_r($user_profile);
-    echo "</pre>";
+    //echo "<pre>";
+    $yourID = $user_profile['id'];
+    //print_r($yourID);
+    //echo "</pre>";
   } catch (FacebookApiException $e) {
     $user = null;
   }
