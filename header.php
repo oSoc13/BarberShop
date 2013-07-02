@@ -1,9 +1,5 @@
 <?php
-    require 'facebook-tests/getid.php';
-    $url = "http://graph.facebook.com/".$yourID;
-    $pageContent = file_get_contents($url);
-    $parsedJson  = json_decode($pageContent);
-    $theName = $parsedJson->name
+    //
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
