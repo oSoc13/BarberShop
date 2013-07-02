@@ -1,5 +1,5 @@
 <?php
-    //
+    //hello stuff
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -26,5 +26,6 @@
         
         <header>
             <img src="http://placehold.it/300x75" />
+            
             <h1>logo goes here</h1>
         </header>

@@ -27,11 +27,11 @@
 			$('button').click(function(event){
 			    event.preventDefault();
 			    
-			    imageSelected="img/004.jpg";
-			    window.alert("bonkers");
+			    imageSelected="img/007.jpg";
+			    
 			    $.ajax({
                   url: "facebook/postData.php",
-                  data: "myLink="+imageSelected
+                  data: "myLink="+imageSelected+"&FBID="+<?php print_r($user_profile["id"]); ?>
                 }).done(function() {
                   window.alert("done");
                 });

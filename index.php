@@ -1,7 +1,38 @@
+<?php
+
+//add php-sdk
+require 'facebook/facebook.php';
+require 'facebook/facebookconfig.php';
+
+$facebook = new Facebook(array(
+  'appId'  => $appID,
+  'secret' => $appSecret,
+));
+
+$user = $facebook->getUser(); // Get the UID of the connected user, or 0 if the Facebook user is not connected.
+if($user == 0) {
+    
+    /**
+     * Get a Login URL for use with redirects. By default, full page redirect is
+     * assumed. If you are using the generated URL with a window.open() call in
+     * JavaScript, you can pass in display=popup as part of the $params.
+     * 
+     * The parameters:
+     * - redirect_uri: the url to go to after a successful login
+     * - scope: comma separated list of requested extended perms
+     */
+
+    $login_url = $facebook->getLoginUrl($params = array('scope' => "publish_stream"));
+
+    echo ("<script> top.location.href='".$login_url."'</script>");
+
+} else{  
+        $MyToken = $facebook->getAccessToken();
+        $user_profile = $facebook->api('/me');
+?>
 <?php include 'header.php'; ?>
 		<!-- the gallery-->
 		<div>
-			
 			<!-- demo images -->
 			<ul id="Gallery" class="gallery"> 
 				<li><a href="images/full/001.jpg"><img src="images/thumb/001.jpg" alt="Image 01" /></a></li>
@@ -19,3 +50,6 @@
 
         </div>
 <?php include 'footer.php'; ?>
+<?php
+    }
+?>
