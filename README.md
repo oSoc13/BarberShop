@@ -1,4 +1,4 @@
 BarberShop
 ==========
 
-Hackaton project 02/07 #oSoc13
+Hackathon project 02/07 #oSoc13
